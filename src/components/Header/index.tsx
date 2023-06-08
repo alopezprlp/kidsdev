@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import logoPhoto from "@/assets/logo/logo.png";
- 
+
 import {
-  HeartIcon,
-  ShoppingCartIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
+  HiOutlineHeart,
+  HiOutlineShoppingCart,
+  HiOutlineMagnifyingGlass,
+} from "react-icons/hi2";
 import NavLink from "./NavLink";
 import { quickSands } from "@/utils/fonts";
 
@@ -34,17 +34,17 @@ const Header = () => {
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-1">
             <span className="w-5">
-              <HeartIcon className="h-6 w-6 text-[#486683] cursor-pointer" />
+              <HiOutlineHeart className="h-6 w-6 text-[#486683] cursor-pointer" />
             </span>
           </div>
           <span className="relative">
-            <ShoppingCartIcon className="h-6 w-6 text-[#486683] cursor-pointer" />
+            <HiOutlineShoppingCart className="h-6 w-6 text-[#486683] cursor-pointer" />
             <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 w-5 h-5 p-2 rounded-full bg-[#E5745D] text-white text-xs flex items-center justify-center">
               0
             </span>
           </span>
           <span className="w-5">
-            <MagnifyingGlassIcon className="h-6 w-6 text-[#486683] cursor-pointer" />
+            <HiOutlineMagnifyingGlass className="h-6 w-6 text-[#486683] cursor-pointer" />
           </span>
         </div>
       </nav>
