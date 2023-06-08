@@ -1,8 +1,28 @@
 import Header from "@/components/Header";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Quicksand, Francois_One, Gilda_Display } from "next/font/google";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const francois_one = Francois_One({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-francois-one",
+  weight: "400",
+});
+
+const quick_sand = Quicksand({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-quick-sand",
+  weight: "400",
+});
+
+const gilda_display = Gilda_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-gilda-display",
+  weight: "400",
+});
 
 export const metadata = {
   title: "Kids",
@@ -16,9 +36,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${gilda_display.variable} ${quick_sand.variable} ${francois_one.variable}`}
+      >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
