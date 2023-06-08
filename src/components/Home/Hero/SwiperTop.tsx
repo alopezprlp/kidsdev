@@ -35,7 +35,7 @@ const SwiperTop = () => {
             <p className={`mt-2 text-sm text-white ${quickSands.className}`}>
               Confortables clothes for your little babies
             </p>
-            <button className="mt-4 py-[14px] px-2 bg-white text-[#486683] hover:text-[#E5745D]">
+            <button className="transition-all mt-4 py-[14px] px-2 bg-white text-[#486683] hover:text-[#E5745D]">
               <span
                 className={`${francois.className} border-dashed border-2 px-[18px] py-[8px]  border-[#486683] uppercase `}
               >
@@ -63,7 +63,7 @@ const SwiperTop = () => {
             <p className={`mt-2 text-sm text-white ${quickSands.className}`}>
               Confortables clothes for your little babies
             </p>
-            <button className="mt-4 py-[14px] px-2 bg-white text-[#486683] hover:text-[#E5745D]">
+            <button className="transition-all mt-4 py-[14px] px-2 bg-white text-[#486683] hover:text-[#E5745D]">
               <span
                 className={`${francois.className} border-dashed border-2 px-[18px] py-[8px]  border-[#486683] uppercase `}
               >
