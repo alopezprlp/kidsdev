@@ -1,6 +1,5 @@
 import Image from "next/image";
 import footerLogo from "@/assets/logo/logo-w.png";
-import fb from "@/assets/logo/facebook.svg";
 import { francois, quickSands } from "@/utils/fonts";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
@@ -9,7 +8,7 @@ const Footer = () => {
   return (
     <>
       {/* <div className="waves"></div> */}
-      <footer className="bg-[#FBB660] waves">
+      <footer className="bg-[#FBB660] waves mt-60">
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center justify-center mb-4">
             <Image className="" src={footerLogo} alt="Logo" priority />
