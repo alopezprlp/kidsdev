@@ -4,7 +4,7 @@ import GirlImg from "../../../../public/images/main/girls-power.webp";
 import { francois, quickSands } from "@/utils/fonts";
 const Hero = () => {
   return (
-    <div className="grid grid-cols-3 gap-10">
+    <section className="grid grid-cols-3 gap-10">
       <div className="col-span-2">
         <SwiperTop />
       </div>
@@ -17,7 +17,7 @@ const Hero = () => {
           <p className={`mt-2 ${quickSands.className} text-[#486683]`}>For a colorful summer</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

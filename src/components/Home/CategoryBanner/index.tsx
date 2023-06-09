@@ -27,7 +27,7 @@ const data = [
 
 const CatBanner = () => {
   return (
-    <div className="mt-20 w-full h-80 border-dashed border-2 border-gray-200 flex justify-between flex-wrap items-center px-10">
+    <section className="mt-20 w-full h-80 border-dashed border-2 border-gray-200 flex justify-between flex-wrap items-center px-10">
       {data.map((cat) => (
         <div
           key={`cbanner-${cat.id}`}
@@ -47,7 +47,7 @@ const CatBanner = () => {
           </h1>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

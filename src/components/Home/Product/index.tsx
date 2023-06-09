@@ -11,7 +11,7 @@ import ProductItem from "./ProductItem";
 
 const ProductPage = () => {
   return (
-    <div className="mt-20 w-full">
+    <section className="mt-20 w-full">
       <h1
         className={`after-img uppercase text-4xl text-center mt-2 text-[#486683] ${francois.className} relative`}
       >
@@ -49,7 +49,7 @@ const ProductPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

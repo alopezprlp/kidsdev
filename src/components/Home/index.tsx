@@ -1,5 +1,6 @@
 import CatBanner from "./CategoryBanner";
 import Hero from "./Hero";
+import InstaKids from "./InstaKids";
 import ProductPage from "./Product";
 
 const HomePage = () => {
@@ -8,6 +9,7 @@ const HomePage = () => {
       <Hero />
       <CatBanner />
       <ProductPage />
+      <InstaKids/>
     </main>
   );
 };
