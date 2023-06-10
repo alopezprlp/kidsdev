@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useStore } from "@/lib/store";
 import ProductItem from "./ProductItem";

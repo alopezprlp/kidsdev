@@ -27,7 +27,7 @@ export class Device {
     this._mediaQuery = this.buildMediaQuery(this.minWidth, this.maxWidth)
   }
 
-  private buildMediaQuery(minWidth, maxWidth) {
+  private buildMediaQuery(minWidth:number, maxWidth:number) {
     return `(min-width: ${minWidth}px) and (max-width: ${maxWidth}px)`
   }
 

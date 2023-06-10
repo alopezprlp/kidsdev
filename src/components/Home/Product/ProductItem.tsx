@@ -25,7 +25,7 @@ const ProductItem: FC<Product> = ({
   };
 
   return (
-    <div href={`/product/${Sku}`} className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center">
       <div
         className="figure w-full h-auto relative transition-all duration-500"
         onMouseEnter={handleMouseEnter}

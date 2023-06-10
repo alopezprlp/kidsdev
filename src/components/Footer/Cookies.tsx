@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { quickSands } from "@/utils/fonts"
 
 const Cookies = () => {
