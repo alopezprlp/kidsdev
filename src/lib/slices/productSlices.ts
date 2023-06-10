@@ -12,9 +12,10 @@ export interface ProductSlice {
   selectedCategory: CategoryTypes;
   getTotalForBabies: () => number;
   searchProduct: (search: string, products: Product[]) => void;
+  getProductById: (Sku: string) => Product;
 }
 
-export const createProductSlice: StateCreator<ProductSlice> = (set) => ({
+export const createProductSlice: StateCreator<ProductSlice> = (set, get) => ({
   products: [],
   allProducts: [...ProductDataForBabies],
   isLoading: false,
@@ -26,11 +27,11 @@ export const createProductSlice: StateCreator<ProductSlice> = (set) => ({
     set({ selectedCategory: CategoryTypes.NONE });
   },
   setCategoriesFilter: async (category: CategoryTypes) => {
-    set({ isLoading: true });
     switch (category) {
       case CategoryTypes.FOR_BABIES:
         set({ products: ProductDataForBabies });
         set({ selectedCategory: CategoryTypes.FOR_BABIES });
+        console.log('Hello from store',get().selectedCategory,category)
         break;
 
       default:
@@ -39,7 +40,6 @@ export const createProductSlice: StateCreator<ProductSlice> = (set) => ({
         break;
     }
 
-    set({ isLoading: false });
   },
   selectedCategory: CategoryTypes.NONE,
   getTotalForBabies: () => {
@@ -48,5 +48,8 @@ export const createProductSlice: StateCreator<ProductSlice> = (set) => ({
   searchProduct: (search, products) => {
     const searchedP = filterProductsBySearch(products, search);
     set({ products: searchedP });
+  },
+  getProductById: (Sku) => {
+    return get().allProducts.filter((p) => p.Sku === Sku)[0];
   },
 });

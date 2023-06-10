@@ -3,13 +3,17 @@ import { useStore } from "@/lib/store";
 import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
 import Pagination from "@/components/common/Pagination";
-import { Product } from "@/lib/_mocks/types";
+import { CategoryTypes, Product } from "@/lib/_mocks/types";
+import { useSearchParams } from 'next/navigation'
 
 const MAX_SIZE = 9;
 const ProductWrapper = () => {
-  const { fetchProducts, products, isLoading } = useStore();
+  const { fetchProducts, products, isLoading, setCategoriesFilter } =
+    useStore();
   const [page, setPage] = useState(1);
-
+  const searchParams = useSearchParams()
+  const categoryCallBack = searchParams.get('categoryCallBack')
+  
   const getCurrentPageData = (products: Product[]) => {
     const startIndex = (page - 1) * MAX_SIZE;
     const endIndex = startIndex + MAX_SIZE;
@@ -17,6 +21,16 @@ const ProductWrapper = () => {
   };
 
   useEffect(() => {
+    if (categoryCallBack) {
+      switch (categoryCallBack) {
+        case "For Babie":
+          setCategoriesFilter(CategoryTypes.FOR_BABIES);
+          break;
+
+        default:
+          break;
+      }
+    }
     fetchProducts();
   }, []);
 

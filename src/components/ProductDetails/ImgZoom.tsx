@@ -1,18 +1,25 @@
 "use client";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 
-const ImgZoom = () => {
+interface IZoom {
+  images: string[];
+}
+
+const defaultImages = [
+  "/images/main/girls-2-2-580x870.jpg",
+  "/images/main/girls-2-3-580x870.jpg",
+  "/images/main/girls-3-1-580x870.jpg",
+  "/images/main/girls-3-2-580x870.jpg",
+];
+
+const ImgZoom: FC<IZoom> = ({ images }) => {
+  console.log("currente arrivals iamages",images)
   const normalImageRef = useRef<any>(null);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
   const [zoomedH, zoomedW] = useState({ w: 400, h: 400 });
   const [hovered, setHovered] = useState(false);
-  const [relatedImages] = useState([
-    "/images/main/girls-2-2-580x870.jpg",
-    "/images/main/girls-2-3-580x870.jpg",
-    "/images/main/girls-3-1-580x870.jpg",
-    "/images/main/girls-3-2-580x870.jpg",
-  ]);
+  const [relatedImages] = useState(images || defaultImages);
   const [currentImage, setCurrentImage] = useState(relatedImages[0]);
   const handleMouseEnter = () => {
     setHovered(true);

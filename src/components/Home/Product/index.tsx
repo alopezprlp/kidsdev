@@ -7,6 +7,7 @@ import ProductWrapper from "./ProductWrapper";
 import FormSearch from "./FormSearch";
 
 const ProductPage = () => {
+   
   return (
     <section className="mt-20 w-full">
       <h1

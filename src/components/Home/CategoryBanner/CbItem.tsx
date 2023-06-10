@@ -6,7 +6,7 @@ import { francois } from "@/utils/fonts";
 import Image from "next/image";
 import { FC } from "react";
 
-const CbItem: FC<any> = ({ id, imagen, title, category, active }) => {
+const CbItem: FC<any> = ({ id, imagen, title, category }) => {
   const { setCategoriesFilter, selectedCategory } = useStore();
   return (
     <div

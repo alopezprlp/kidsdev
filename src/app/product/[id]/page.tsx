@@ -1,54 +1,46 @@
+"use client";
 import ImgZoom from "@/components/ProductDetails/ImgZoom";
 import RelatedItem from "@/components/ProductDetails/RelatedItem";
 import Tabs from "@/components/ProductDetails/Tabs";
 import Rate from "@/components/RateStart";
 import BreadCumbs from "@/components/common/BreadCumbs";
+import { Product } from "@/lib/_mocks/types";
+import { useStore } from "@/lib/store";
 import { francois, quickSands } from "@/utils/fonts";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const data = [
-  {
-    id: 1,
-    urlImg: "/images/ig/87339849_530805007551424_292323017375800029_nlow.jpg",
-  },
-  {
-    id: 2,
-    urlImg: "/images/ig/87413583_2660130777540405_5722961474466513534_nlow.jpg",
-  },
-  {
-    id: 3,
-    urlImg: "/images/ig/85069033_185901059177965_6767010623440980864_nlow.jpg",
-  },
-  {
-    id: 4,
-    urlImg: "/images/ig/84981049_620107085435507_4260875787090681190_nlow.jpg",
-  },
-  {
-    id: 5,
-    urlImg: "/images/ig/85051426_2060664737412512_8458893884651247910_nlow.jpg",
-  },
-];
+const PDP = async ({ params }: any) => {
+  const { id } = params;
+  const { getProductById } = useStore();
+  const [product, setProducts] = useState<Product>(getProductById(id));
 
-const PDP = () => {
+  if (!id) {
+    redirect("/");
+  }
+  if (typeof product === "undefined") {
+    redirect("/");
+  }
+  useEffect(() => {
+    setProducts(product);
+  }, []);
   return (
     <section className="container mx-auto px-28 py-8 mb-40 ">
-      <BreadCumbs />
+      <BreadCumbs name={product.name || ""} category={product.category || ""} />
       <div className="grid grid-cols-3 gap-10 mt-14">
         <div className="col-span-1">
-          <ImgZoom/>
+          <ImgZoom images={product.related_images} />
         </div>
         <div className="col-span-2">
           <p
             className={`mb-5 text-md font-bld text-[#486683] ${francois.className}`}
           >
-            $22
+            {`$${product.price}`}
           </p>
-          <Rate rate={4} />
+          <Rate rate={product.rate || 1} />
           <p className={`mt-5 ${quickSands.className}`}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-            porro? Facilis nemo omnis totam deserunt, excepturi, ipsa dolores
-            cum reiciendis dolor labore saepe. Deserunt qui dolore aperiam sunt
-            obcaecati animi.
+            {product.description}
           </p>
           <div className="w-1/2 flex items-center mt-5">
             <input
@@ -78,7 +70,9 @@ const PDP = () => {
               >
                 SKU:
               </div>
-              <div className={`text-lg ${quickSands.className}`}>001</div>
+              <div className={`text-lg ${quickSands.className}`}>
+                {product.Sku}
+              </div>
             </div>
             <div className="flex items-center justify-start py-2 px-4 border-b border-gray-400">
               <div
@@ -86,7 +80,9 @@ const PDP = () => {
               >
                 Category:
               </div>
-              <div className={`text-lg ${quickSands.className}`}>Boys</div>
+              <div className={`text-lg ${quickSands.className}`}>
+                {product.category}
+              </div>
             </div>
             <div className="flex items-center justify-start py-2 px-4">
               <div
@@ -97,15 +93,16 @@ const PDP = () => {
               <div
                 className={`text-lg flex items-center space-x-2 ${quickSands.className}`}
               >
-                <span>tag1</span>
-                <span>tag2</span>
+                {product.tags.map((e, inx) => (
+                  <span key={inx}>{e}</span>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <Tabs />
+      <Tabs product={product} />
 
       <div className="mt-[15rem] w-full">
         <h1
@@ -113,9 +110,9 @@ const PDP = () => {
         >
           RELATED PRODUCTS
         </h1>
-        <div className="mt-20 w-full flex justify-between flex-wrap items-center">
-          {data.slice(0, 4).map((cat) => (
-            <RelatedItem key={cat.id} />
+        <div className="mt-20 w-full flex justify-between space-x-5 items-center">
+          {product.related_product.slice(0, 4).map((cat) => (
+            <RelatedItem key={cat.id} {...cat} />
           ))}
         </div>
       </div>
@@ -124,3 +121,12 @@ const PDP = () => {
 };
 
 export default PDP;
+
+// Generate static params 
+// export async function generateStaticParams() {
+//   const products = await fetch('https://.../products').then((res) => res.json())
+ 
+//   return products.map((p) => ({
+//     Sku: p.Sku,
+//   }))
+// }

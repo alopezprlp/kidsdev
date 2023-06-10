@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { clsxm } from "@/utils/classes";
 import { francois, quickSands } from "@/utils/fonts";
 import ReviewsSlider from "./Reviews";
+import { AdditionalInfo, Product } from "@/lib/_mocks/types";
 
 const tabs = [
   {
@@ -75,43 +76,110 @@ type Tab = {
   content: () => JSX.Element;
 };
 
-const Tabs = () => {
-  const [activeTab, setActiveTab] = useState<Tab>(tabs[0]);
+interface ITabs {
+  product: Product;
+}
+const DescriptionSection = (description: string) => (
+  <p className={`mt-5 ${quickSands.className}`}>{description}</p>
+);
+const AdditionalInfoP = (additional: AdditionalInfo[]) => (
+  <div className="mt-5 border-dashed border border-gray-400 p-4">
+    <div className="flex items-center justify-start py-2 px-4 border-b border-gray-400">
+      <div
+        className={`w-[23%] text-lg text-[#486683] ${francois.className} hover:text-[#E5745D] transition-all cursor-pointer`}
+      >
+        Sku:
+      </div>
+      <div className={`text-lg ${quickSands.className}`}>
+        {additional[0].SKu}
+      </div>
+    </div>
+    <div className="flex items-center justify-start py-2 px-4 border-b border-gray-400">
+      <div
+        className={`w-[23%] text-lg text-[#486683] ${francois.className} hover:text-[#E5745D] transition-all cursor-pointer`}
+      >
+        Category:
+      </div>
+      <div className={`text-lg ${quickSands.className}`}>
+        {additional[0].category}
+      </div>
+    </div>
+    <div className="flex items-center justify-start py-2 px-4">
+      <div
+        className={`w-[23%] text-lg text-[#486683] ${francois.className} hover:text-[#E5745D] transition-all cursor-pointer`}
+      >
+        Tags:
+      </div>
+      <div
+        className={`text-lg flex items-center space-x-2 ${quickSands.className}`}
+      >
+        {additional[0].tags.map((e, inx) => (
+          <span key={inx}>{e}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+const Tabs: FC<ITabs> = ({ product }) => {
+  const [Tabs, setTabs] = useState<Tab[]>();
+  const [activeTab, setActiveTab] = useState<Tab>();
 
   const handleTabClick = (tab: Tab) => {
     setActiveTab(tab);
   };
 
+  useEffect(() => {
+    const NormalizeTabs: any = tabs.map((tab) => {
+      if (tab.id === 1) {
+        return {
+          ...tab,
+          content: () => DescriptionSection(product.description),
+        };
+      }
+      if (tab.id === 2) {
+        return {
+          ...tab,
+          content: () => AdditionalInfoP(product.aditional_info),
+        };
+      }
+      return { ...tab };
+    });
+    setTabs(NormalizeTabs);
+    setActiveTab(NormalizeTabs[0]);
+  }, []);
+
   return (
     <div className="w-full mt-24 mb-32">
       <div className="flex justify-evenly items-center">
-        {tabs.map((tab) => (
-          <h1
-            key={tab.id}
-            className={clsxm(
-              `transition-all duration-500 change uppercase text-2xl text-center mt-2 text-[#486683] ${francois.className} cursor-pointer`,
-              tab === activeTab && "relative after-img"
-            )}
-            onClick={() => handleTabClick(tab)}
-          >
-            {tab.label}
-          </h1>
-        ))}
+        {Tabs &&
+          Tabs.map((tab) => (
+            <h1
+              key={tab.id}
+              className={clsxm(
+                `transition-all duration-500 change uppercase text-2xl text-center mt-2 text-[#486683] ${francois.className} cursor-pointer`,
+                tab === activeTab && "relative after-img"
+              )}
+              onClick={() => handleTabClick(tab)}
+            >
+              {tab.label}
+            </h1>
+          ))}
       </div>
       <div className="py-4 ">
         <div className="relative ">
-          {tabs.map((tab) => (
-            <div
-              key={tab.label}
-              className={clsxm(
-                "absolute top-0 left-0 w-full transition-all duration-500",
-                tab === activeTab ? "translate-y-0" : "translate-y-[110px]",
-                tab === activeTab ? "opacity-100" : "opacity-0"
-              )}
-            >
-              {tab.content()}
-            </div>
-          ))}
+          {Tabs &&
+            Tabs.map((tab) => (
+              <div
+                key={tab.label}
+                className={clsxm(
+                  "absolute top-0 left-0 w-full transition-all duration-500",
+                  tab === activeTab ? "translate-y-0" : "translate-y-[110px]",
+                  tab === activeTab ? "opacity-100" : "opacity-0"
+                )}
+              >
+                {tab.content()}
+              </div>
+            ))}
         </div>
       </div>
     </div>
