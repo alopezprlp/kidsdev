@@ -1,10 +1,17 @@
 "use client";
+import { Product } from "@/lib/_mocks/types";
 import { francois, gilda, quickSands } from "@/utils/fonts";
 import Image from "next/image";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { HiOutlineHeart, HiOutlineMagnifyingGlass } from "react-icons/hi2";
 
-const ProductItem = () => {
+const ProductItem: FC<Product> = ({
+  related_images,
+  stock,
+  category,
+  name,
+  price,
+}) => {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -23,14 +30,14 @@ const ProductItem = () => {
         onMouseLeave={handleMouseLeave}
       >
         <Image
-          src={"/images/main/girls-power.webp"}
+          src={related_images[0]}
           alt="Girls"
           width={100}
           height={500}
           className="h-full w-full max-h-[17rem] object-cover transition-all duration-500"
         />
         <Image
-          src="/images/main/girls-2-2-580x870.jpg"
+          src={related_images[1]}
           alt="Girls"
           width={100}
           height={500}
@@ -38,10 +45,13 @@ const ProductItem = () => {
             hovered ? "opacity-100" : ""
           }`}
         />
-
-        <span className={`absolute top-3 right-3 rounded-full bg-white shadow-sm px-2 py-1 text-[#486683] text-sm uppercase ${francois.className}`}>
-          OUT OF STOCK
-        </span>
+        {stock === 0 && (
+          <span
+            className={`absolute top-3 right-3 rounded-full bg-white shadow-sm px-2 py-1 text-[#486683] text-sm uppercase ${francois.className}`}
+          >
+            OUT OF STOCK
+          </span>
+        )}
 
         <div
           className="addtocart flex justify-center items-center p-[6px]"
@@ -60,28 +70,34 @@ const ProductItem = () => {
                     <HiOutlineHeart className="h-6 w-6 text-white cursor-pointer" />
                   </span>
                 </div>
-                <span className="text-white text-md cursor-pointer hover:text-[#486683]">
-                  ADD TO CART
-                </span>
-                <span className="w-5">
-                  <HiOutlineMagnifyingGlass className="h-6 w-6 text-white cursor-pointer" />
-                </span>
+                {stock > 0 && (
+                  <>
+                    <span className="text-white text-md cursor-pointer hover:text-[#486683]">
+                      ADD TO CART
+                    </span>
+                    <span className="w-5">
+                      <HiOutlineMagnifyingGlass className="h-6 w-6 text-white cursor-pointer" />
+                    </span>
+                  </>
+                )}
               </div>
             </div>
           </span>
         </div>
       </div>
       <h2 className={`text-lg mt-2 text-[#F1755C] ${francois.className}`}>
-        For Girls
+        {category}
       </h2>
       <h1 className={`text-2xl mt-2 text-[#486683] ${gilda.className}`}>
-        Blue Blouse
+        {name}
       </h1>
-      <p
-        className={`uppercase text-md font-bld text-[#486683] ${quickSands.className}`}
-      >
-        $33
-      </p>
+      {stock > 0 && (
+        <p
+          className={`uppercase text-md font-bld text-[#486683] ${quickSands.className}`}
+        >
+          {`$${price}`}
+        </p>
+      )}
     </div>
   );
 };

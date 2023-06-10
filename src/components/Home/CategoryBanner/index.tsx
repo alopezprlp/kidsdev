@@ -1,27 +1,34 @@
-import { francois } from "@/utils/fonts";
-import Image from "next/image";
-import React from "react";
+import { CategoryTypes } from "@/lib/_mocks/types";
+import CbItem from "./CbItem";
 
 const data = [
   {
     id: "1",
     title: "Babby & Toddler",
     imagen: "/images/main/baby.png",
+    category: CategoryTypes.FOR_BABIES,
+    active: false,
   },
   {
     id: "2",
     title: "For Girls",
     imagen: "/images/main/girl.png",
+    category: CategoryTypes.FOR_GIRLS,
+    active: false,
   },
   {
     id: "3",
     title: "For Boys",
     imagen: "/images/main/boy.png",
+    category: CategoryTypes.FOR_BOYS,
+    active: false,
   },
   {
     id: "4",
     title: "Home & Toys",
     imagen: "/images/main/toys.png",
+    category: CategoryTypes.FOR_TOYS,
+    active: false,
   },
 ];
 
@@ -29,23 +36,7 @@ const CatBanner = () => {
   return (
     <section className="mt-20 w-full h-80 border-dashed border-2 border-gray-200 flex justify-between flex-wrap items-center px-10">
       {data.map((cat) => (
-        <div
-          key={`cbanner-${cat.id}`}
-          className="flex flex-col items-center mb-6"
-        >
-          <Image
-            src={cat.imagen}
-            alt="Img"
-            width={150}
-            height={150}
-            className="cursor-pointer hover:scale-105 transform transition-all duration-200"
-          />
-          <h1
-            className={`transition-all text-lg mt-2 text-[#486683] ${francois.className}`}
-          >
-            {cat.title}
-          </h1>
-        </div>
+        <CbItem key={cat.id} {...cat} />
       ))}
     </section>
   );

@@ -1,6 +1,11 @@
+"use client";
 import { francois } from "@/utils/fonts";
+import CategoryItem from "./CategoryItem";
+import { useStore } from "@/lib/store";
+import { CategoryTypes } from "@/lib/_mocks/types";
 
 const Categories = () => {
+  const { getTotalForBabies, setCategoriesFilter, fetchProducts,selectedCategory } = useStore();
   return (
     <div>
       <h1
@@ -9,45 +14,16 @@ const Categories = () => {
         Categories
       </h1>
       <div className="border-dashed border border-gray-400 p-4">
-        <div className="flex items-center py-2 px-4 border-b border-gray-400">
-          <div
-            className={`w-1/2 text-lg mt-2 text-[#486683] ${francois.className} hover:text-[#E5745D] transition-all cursor-pointer`}
-          >
-            Categoría 1
-          </div>
-          <div className="w-1/2 text-right">(100)</div>
+        <div onClick={() => setCategoriesFilter(CategoryTypes.FOR_BABIES)}>
+          <CategoryItem name="Babby & Toddler" quantity={getTotalForBabies()} active={CategoryTypes.FOR_BABIES === selectedCategory}/>
         </div>
-        <div className="flex items-center py-2 px-4 border-b border-gray-400">
-          <div
-            className={`w-1/2 text-lg mt-2 text-[#486683] ${francois.className} hover:text-[#E5745D] transition-all cursor-pointer`}
-          >
-            Categoría 2
-          </div>
-          <div className="w-1/2 text-right">(75)</div>
+        <div>
+          <CategoryItem name="For Girls" quantity={2} active={CategoryTypes.FOR_GIRLS === selectedCategory}/>
         </div>
-        <div className="flex items-center py-2 px-4 border-b border-gray-400">
-          <div
-            className={`w-1/2 text-lg mt-2 text-[#486683] ${francois.className} hover:text-[#E5745D] transition-all cursor-pointer`}
-          >
-            Categoría 3
-          </div>
-          <div className="w-1/2 text-right">(20)</div>
-        </div>
-        <div className="flex items-center py-2 px-4 border-b border-gray-400">
-          <div
-            className={`w-1/2 text-lg mt-2 text-[#486683] ${francois.className} hover:text-[#E5745D] transition-all cursor-pointer`}
-          >
-            Categoría 4
-          </div>
-          <div className="w-1/2 text-right">(50)</div>
-        </div>
-        <div className="flex items-center py-2 px-4">
-          <div
-            className={`w-1/2 text-lg mt-2 text-[#486683] ${francois.className} hover:text-[#E5745D] transition-all cursor-pointer`}
-          >
-            Categoría 5
-          </div>
-          <div className="w-1/2 text-right">(90)</div>
+        <CategoryItem name="For Boys" quantity={2} active={CategoryTypes.FOR_BOYS === selectedCategory}/>
+        <CategoryItem name="Home & Toys" quantity={2} active={CategoryTypes.FOR_TOYS === selectedCategory}/>
+        <div onClick={() => fetchProducts()}>
+          <CategoryItem name="ALL" quantity={0} last active={CategoryTypes.NONE === selectedCategory}/>
         </div>
       </div>
     </div>

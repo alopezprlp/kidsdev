@@ -40,7 +40,9 @@ const RelatedItem = () => {
           }`}
         />
 
-        <span className={`absolute top-3 right-3 rounded-full bg-white shadow-sm px-2 py-1 text-[#486683] text-sm uppercase ${francois.className}`}>
+        <span
+          className={`absolute top-3 right-3 rounded-full bg-white shadow-sm px-2 py-1 text-[#486683] text-sm uppercase ${francois.className}`}
+        >
           OUT OF STOCK
         </span>
 
@@ -83,7 +85,7 @@ const RelatedItem = () => {
       >
         $33
       </p>
-      <Rate rate={5}/>
+      <Rate rate={5} />
     </div>
   );
 };

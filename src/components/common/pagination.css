@@ -1,0 +1,37 @@
+.crp {
+  cursor: pointer;
+}
+.current-page {
+  height: 40px;
+  width: 38px;
+  line-height: 41px;
+  text-align: center;
+  border: 1px solid rgb(218, 219, 221);
+  display: inline-block;
+  border-radius: 4px;
+  transition: all 0.5s ease 0s;
+  background: rgb(206, 206, 205);
+  color: blue;
+}
+.pagition-number ul li {
+  display: inline-block;
+  margin-right: 6px;
+}
+.pagition-number ul li i {
+  color: #0492fe;
+}
+.pagition-number ul li a {
+  height: 40px;
+  width: 38px;
+  line-height: 41px;
+  text-align: center;
+  border: 1px solid#DADBDD;
+  display: inline-block;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #7c7c7c;
+}
+.pagition-number ul li a:hover {
+  border-color: #0293fe;
+  color: #0293fe;
+}
