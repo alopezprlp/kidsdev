@@ -47,7 +47,9 @@
   background-repeat: no-repeat;
   z-index: -99;
 }
-
+.change:hover{
+  color: #E5745D;
+}
 .after-img::after {
   content: "";
   display: block;
@@ -61,6 +63,7 @@
   transform: translateX(-50%);
   background-repeat: no-repeat;
   z-index: -99;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .figure {
