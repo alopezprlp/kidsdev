@@ -4,16 +4,16 @@ import ProductItem from "./ProductItem";
 import { useEffect, useState } from "react";
 import Pagination from "@/components/common/Pagination";
 import { CategoryTypes, Product } from "@/lib/_mocks/types";
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation";
 
 const MAX_SIZE = 9;
 const ProductWrapper = () => {
   const { fetchProducts, products, isLoading, setCategoriesFilter } =
     useStore();
   const [page, setPage] = useState(1);
-  const searchParams = useSearchParams()
-  const categoryCallBack = searchParams.get('categoryCallBack')
-  
+  const searchParams = useSearchParams();
+  const categoryCallBack = searchParams.get("categoryCallBack");
+
   const getCurrentPageData = (products: Product[]) => {
     const startIndex = (page - 1) * MAX_SIZE;
     const endIndex = startIndex + MAX_SIZE;
@@ -26,10 +26,20 @@ const ProductWrapper = () => {
         case "For Babie":
           setCategoriesFilter(CategoryTypes.FOR_BABIES);
           break;
-
+        case "For Boys":
+          setCategoriesFilter(CategoryTypes.FOR_BOYS);
+          break;
+        case "For Girls":
+          setCategoriesFilter(CategoryTypes.FOR_GIRLS);
+          break;
+        case "For Toys":
+          setCategoriesFilter(CategoryTypes.FOR_TOYS);
+          break;
         default:
+          fetchProducts();
           break;
       }
+      return;
     }
     fetchProducts();
   }, []);
