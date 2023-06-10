@@ -1089,13 +1089,13 @@ export const ProductDataForGirls: Product[] = [
     description: "Product 8 description.",
     aditional_info: [
       {
-        SKu: "209",
+        SKu: "2092",
         category: "For Girls",
         tags: ["tag15", "tag16"],
       },
     ],
     rate: 4.6,
-    Sku: "209",
+    Sku: "2092",
     related_images: [
       "/images/for_girls/9.jpg",
       "/images/for_girls/2.jpg",
@@ -1222,13 +1222,13 @@ export const ProductDataForGirls: Product[] = [
     description: "Product 8 description.",
     aditional_info: [
       {
-        SKu: "209",
+        SKu: "2092",
         category: "For Girls",
         tags: ["tag15", "tag16"],
       },
     ],
     rate: 4.6,
-    Sku: "209",
+    Sku: "2092",
     related_images: [
       "/images/for_girls/10.jpg",
       "/images/for_girls/3.jpg",
@@ -1259,6 +1259,272 @@ export const ProductDataForGirls: Product[] = [
           "/images/for_girls/2.jpg",
           "/images/for_girls/10.jpg",
           "/images/for_girls/6.jpg",
+        ],
+        related_product: [],
+      },
+      {
+        id: 34,
+        name: "Shoes",
+        category: "For Girls",
+
+        price: "23.44",
+        stock: 5,
+        tags: ["babies", "children"],
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, hic temporibus! Corporis quas sapiente labore quasi? Magnam sit explicabo fugit! Sed exercitationem facilis explicabo ipsa at dolor ratione cupiditate nesciunt.",
+        aditional_info: [
+          {
+            SKu: "201",
+            category: "",
+            tags: ["babies", "children"],
+          },
+        ],
+        rate: 5,
+        Sku: "201",
+        related_images: [
+          "/images/for_girls/1.jpg",
+          "/images/for_girls/2.jpg",
+          "/images/for_girls/10.jpg",
+          "/images/for_girls/6.jpg",
+        ],
+        related_product: [],
+      },
+      {
+        id: 33,
+        name: "Shoes",
+        category: "For Girls",
+
+        price: "23.44",
+        stock: 5,
+        tags: ["babies", "children"],
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, hic temporibus! Corporis quas sapiente labore quasi? Magnam sit explicabo fugit! Sed exercitationem facilis explicabo ipsa at dolor ratione cupiditate nesciunt.",
+        aditional_info: [
+          {
+            SKu: "201",
+            category: "",
+            tags: ["babies", "children"],
+          },
+        ],
+        rate: 5,
+        Sku: "201",
+        related_images: [
+          "/images/for_girls/1.jpg",
+          "/images/for_girls/2.jpg",
+          "/images/for_girls/10.jpg",
+          "/images/for_girls/6.jpg",
+        ],
+        related_product: [],
+      },
+      {
+        id: 32,
+        name: "Shoes",
+        category: "For Girls",
+
+        price: "23.44",
+        stock: 5,
+        tags: ["babies", "children"],
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, hic temporibus! Corporis quas sapiente labore quasi? Magnam sit explicabo fugit! Sed exercitationem facilis explicabo ipsa at dolor ratione cupiditate nesciunt.",
+        aditional_info: [
+          {
+            SKu: "201",
+            category: "",
+            tags: ["babies", "children"],
+          },
+        ],
+        rate: 5,
+        Sku: "201",
+        related_images: [
+          "/images/for_girls/1.jpg",
+          "/images/for_girls/2.jpg",
+          "/images/for_girls/10.jpg",
+          "/images/for_girls/6.jpg",
+        ],
+        related_product: [],
+      },
+    ],
+  },
+  {
+    id: 2323,
+    name: "Product 9",
+    category: "For Girls",
+    price: "9.99",
+    stock: 0,
+    tags: ["tag15", "tag16"],
+    description: "Product 8 description.",
+    aditional_info: [
+      {
+        SKu: "2092",
+        category: "For Girls",
+        tags: ["tag15", "tag16"],
+      },
+    ],
+    rate: 4.6,
+    Sku: "2092",
+    related_images: [
+      "/images/for_girls/10.jpg",
+      "/images/for_girls/3.jpg",
+      "/images/for_girls/2.jpg",
+    ],
+    related_product: [
+      {
+        id: 30,
+        name: "Shoes",
+        category: "For Girls",
+
+        price: "23.44",
+        stock: 5,
+        tags: ["babies", "children"],
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, hic temporibus! Corporis quas sapiente labore quasi? Magnam sit explicabo fugit! Sed exercitationem facilis explicabo ipsa at dolor ratione cupiditate nesciunt.",
+        aditional_info: [
+          {
+            SKu: "201",
+            category: "",
+            tags: ["babies", "children"],
+          },
+        ],
+        rate: 5,
+        Sku: "201",
+        related_images: [
+          "/images/for_girls/1.jpg",
+          "/images/for_girls/2.jpg",
+          "/images/for_girls/10.jpg",
+          "/images/for_girls/6.jpg",
+        ],
+        related_product: [],
+      },
+      {
+        id: 34,
+        name: "Shoes",
+        category: "For Girls",
+
+        price: "23.44",
+        stock: 5,
+        tags: ["babies", "children"],
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, hic temporibus! Corporis quas sapiente labore quasi? Magnam sit explicabo fugit! Sed exercitationem facilis explicabo ipsa at dolor ratione cupiditate nesciunt.",
+        aditional_info: [
+          {
+            SKu: "201",
+            category: "",
+            tags: ["babies", "children"],
+          },
+        ],
+        rate: 5,
+        Sku: "201",
+        related_images: [
+          "/images/for_girls/1.jpg",
+          "/images/for_girls/2.jpg",
+          "/images/for_girls/10.jpg",
+          "/images/for_girls/6.jpg",
+        ],
+        related_product: [],
+      },
+      {
+        id: 33,
+        name: "Shoes",
+        category: "For Girls",
+
+        price: "23.44",
+        stock: 5,
+        tags: ["babies", "children"],
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, hic temporibus! Corporis quas sapiente labore quasi? Magnam sit explicabo fugit! Sed exercitationem facilis explicabo ipsa at dolor ratione cupiditate nesciunt.",
+        aditional_info: [
+          {
+            SKu: "201",
+            category: "",
+            tags: ["babies", "children"],
+          },
+        ],
+        rate: 5,
+        Sku: "201",
+        related_images: [
+          "/images/for_girls/1.jpg",
+          "/images/for_girls/2.jpg",
+          "/images/for_girls/10.jpg",
+          "/images/for_girls/6.jpg",
+        ],
+        related_product: [],
+      },
+      {
+        id: 32,
+        name: "Shoes",
+        category: "For Girls",
+
+        price: "23.44",
+        stock: 5,
+        tags: ["babies", "children"],
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, hic temporibus! Corporis quas sapiente labore quasi? Magnam sit explicabo fugit! Sed exercitationem facilis explicabo ipsa at dolor ratione cupiditate nesciunt.",
+        aditional_info: [
+          {
+            SKu: "201",
+            category: "",
+            tags: ["babies", "children"],
+          },
+        ],
+        rate: 5,
+        Sku: "201",
+        related_images: [
+          "/images/for_girls/1.jpg",
+          "/images/for_girls/2.jpg",
+          "/images/for_girls/10.jpg",
+          "/images/for_girls/6.jpg",
+        ],
+        related_product: [],
+      },
+    ],
+  },
+  {
+    id: 5657,
+    name: "Product 19",
+    category: "For Girls",
+    price: "9.99",
+    stock: 0,
+    tags: ["tag15", "tag16"],
+    description: "Product 8 description.",
+    aditional_info: [
+      {
+        SKu: "2092",
+        category: "For Girls",
+        tags: ["tag15", "tag16"],
+      },
+    ],
+    rate: 4.6,
+    Sku: "2092",
+    related_images: [
+      "/images/for_girls/10.jpg",
+      "/images/for_girls/3.jpg",
+      "/images/for_girls/2.jpg",
+    ],
+    related_product: [
+      {
+        id: 30,
+        name: "Shoes",
+        category: "For Girls",
+
+        price: "23.44",
+        stock: 5,
+        tags: ["babies", "children"],
+        description:
+          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure, hic temporibus! Corporis quas sapiente labore quasi? Magnam sit explicabo fugit! Sed exercitationem facilis explicabo ipsa at dolor ratione cupiditate nesciunt.",
+        aditional_info: [
+          {
+            SKu: "201",
+            category: "",
+            tags: ["babies", "children"],
+          },
+        ],
+        rate: 5,
+        Sku: "2012",
+        related_images: [
+          "/images/for_girls/1.jpg",
+          "/images/for_girls/6.jpg",
+          "/images/for_girls/7.jpg",
+          "/images/for_girls/3.jpg",
         ],
         related_product: [],
       },

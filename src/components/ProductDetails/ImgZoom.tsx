@@ -1,9 +1,11 @@
 "use client";
+import { francois } from "@/utils/fonts";
 import Image from "next/image";
 import { FC, useRef, useState } from "react";
 
 interface IZoom {
   images: string[];
+  stock: number;
 }
 
 const defaultImages = [
@@ -13,8 +15,7 @@ const defaultImages = [
   "/images/main/girls-3-2-580x870.jpg",
 ];
 
-const ImgZoom: FC<IZoom> = ({ images }) => {
-  console.log("currente arrivals iamages",images)
+const ImgZoom: FC<IZoom> = ({ images, stock }) => {
   const normalImageRef = useRef<any>(null);
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
   const [zoomedH, zoomedW] = useState({ w: 400, h: 400 });
@@ -54,6 +55,13 @@ const ImgZoom: FC<IZoom> = ({ images }) => {
     <div className="w-full">
       <div className="flex flex-col justify-start">
         <div className="flex flex-row relative h-[30rem]">
+          {stock === 0 && (
+            <span
+              className={`absolute top-3 right-3 rounded-full bg-white shadow-sm px-2 py-1 text-[#486683] text-sm uppercase ${francois.className}`}
+            >
+              OUT OF STOCK
+            </span>
+          )}
           <Image
             src={currentImage}
             width={500}

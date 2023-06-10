@@ -5,7 +5,15 @@ import { useStore } from "@/lib/store";
 import { CategoryTypes } from "@/lib/_mocks/types";
 
 const Categories = () => {
-  const { getTotalForBabies, setCategoriesFilter, fetchProducts,selectedCategory } = useStore();
+  const {
+    getTotalForBabies,
+    setCategoriesFilter,
+    fetchProducts,
+    selectedCategory,
+    getTotalForBoys,
+    getTotalForGirls,
+    getTotalForToys,
+  } = useStore();
   return (
     <div>
       <h1
@@ -15,15 +23,44 @@ const Categories = () => {
       </h1>
       <div className="border-dashed border border-gray-400 p-4">
         <div onClick={() => setCategoriesFilter(CategoryTypes.FOR_BABIES)}>
-          <CategoryItem name="Babby & Toddler" quantity={getTotalForBabies()} active={CategoryTypes.FOR_BABIES === selectedCategory}/>
+          <CategoryItem
+            name="Babby & Toddler"
+            quantity={getTotalForBabies()}
+            active={CategoryTypes.FOR_BABIES === selectedCategory}
+          />
         </div>
-        <div>
-          <CategoryItem name="For Girls" quantity={2} active={CategoryTypes.FOR_GIRLS === selectedCategory}/>
+
+        <div onClick={() => setCategoriesFilter(CategoryTypes.FOR_GIRLS)}>
+          <CategoryItem
+            name="For Girls"
+            quantity={getTotalForGirls()}
+            active={CategoryTypes.FOR_GIRLS === selectedCategory}
+          />
         </div>
-        <CategoryItem name="For Boys" quantity={2} active={CategoryTypes.FOR_BOYS === selectedCategory}/>
-        <CategoryItem name="Home & Toys" quantity={2} active={CategoryTypes.FOR_TOYS === selectedCategory}/>
+
+        <div onClick={() => setCategoriesFilter(CategoryTypes.FOR_BOYS)}>
+          <CategoryItem
+            name="For Boys"
+            quantity={getTotalForBoys()}
+            active={CategoryTypes.FOR_BOYS === selectedCategory}
+          />
+        </div>
+
+        <div onClick={() => setCategoriesFilter(CategoryTypes.FOR_TOYS)}>
+          <CategoryItem
+            name="Home & Toys"
+            quantity={getTotalForToys()}
+            active={CategoryTypes.FOR_TOYS === selectedCategory}
+          />
+        </div>
+        
         <div onClick={() => fetchProducts()}>
-          <CategoryItem name="ALL" quantity={0} last active={CategoryTypes.NONE === selectedCategory}/>
+          <CategoryItem
+            name="ALL"
+            quantity={getTotalForToys() + getTotalForBoys() + getTotalForGirls() + getTotalForBabies()}
+            last
+            active={CategoryTypes.NONE === selectedCategory}
+          />
         </div>
       </div>
     </div>
