@@ -1,9 +1,9 @@
-import HomePage from "@/components/Home";
+import ProductPage from "@/components/ProductDetails";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Product Details",
 };
 export default function Home() {
-  return <HomePage />;
+  return <ProductPage/>
 }
