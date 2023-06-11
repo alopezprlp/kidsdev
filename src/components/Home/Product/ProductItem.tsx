@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, useState } from "react";
 import { HiOutlineHeart, HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import { motion } from "framer-motion";
 
 const ProductItem: FC<Product> = ({
   related_images,
@@ -25,7 +26,13 @@ const ProductItem: FC<Product> = ({
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <motion.div
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      className="w-full flex flex-col items-center"
+    >
       <div
         className="figure w-full h-auto relative transition-all duration-500"
         onMouseEnter={handleMouseEnter}
@@ -102,7 +109,7 @@ const ProductItem: FC<Product> = ({
           {`$${price}`}
         </p>
       )}
-    </div>
+    </motion.div>
   );
 };
 

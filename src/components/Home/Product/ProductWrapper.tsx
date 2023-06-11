@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Pagination from "@/components/common/Pagination";
 import { CategoryTypes, Product } from "@/lib/_mocks/types";
 import { useSearchParams } from "next/navigation";
+import { AnimatePresence } from "framer-motion";
 
 const MAX_SIZE = 9;
 const ProductWrapper = () => {
@@ -50,7 +51,7 @@ const ProductWrapper = () => {
   }
 
   return (
-    <>
+    <AnimatePresence>
       <div className="grid grid-cols-3 gap-6 gap-y-12 mb-10">
         {getCurrentPageData(products).map((e) => (
           <ProductItem key={e.id} {...e} />
@@ -61,7 +62,7 @@ const ProductWrapper = () => {
         maxPage={Math.ceil(products.length / MAX_SIZE)}
         onPageChange={setPage}
       />
-    </>
+    </AnimatePresence>
   );
 };
 
