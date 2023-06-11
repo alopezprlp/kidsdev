@@ -1,12 +1,9 @@
-import PDP from "@/components/ProductDetails";
+import HomePage from "@/components/Home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Product Details",
+  title: "Home",
 };
-
-const PD = () => {
-  return <PDP />;
-};
-
-export default PD;
+export default function Home() {
+  return <HomePage />;
+}

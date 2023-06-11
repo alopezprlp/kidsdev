@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import logoPhoto from "@/assets/logo/logo.png";
-
+import Link from "next/link";
 import {
   HiOutlineHeart,
   HiOutlineShoppingCart,
@@ -18,9 +18,9 @@ const Header = () => {
           20% off all kidswear + free shipping when you spend $60 or more
         </p>
       </div>
-      <div className="w-full flex justify-center ">
+      <Link href="/" className="w-full flex justify-center ">
         <Image className="mt-5" src={logoPhoto} alt="Logo" priority />
-      </div>
+      </Link>
 
       <nav className="flex items-center justify-center p-4 gap-11 mt-6">
         <div className="flex items-center space-x-7 uppercase text-[#486683]">
@@ -43,9 +43,9 @@ const Header = () => {
               0
             </span>
           </span>
-          <span className="w-5">
+          <Link href="#productPage" className="w-5">
             <HiOutlineMagnifyingGlass className="h-6 w-6 text-[#486683] cursor-pointer" />
-          </span>
+          </Link>
         </div>
       </nav>
     </header>

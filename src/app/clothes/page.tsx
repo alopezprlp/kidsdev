@@ -1,7 +1,9 @@
 import HomePage from "@/components/Home";
+import { Metadata } from "next";
 
-const ShopPage = () => {
-  return <HomePage />;
+export const metadata: Metadata = {
+  title: "Home",
 };
-
-export default ShopPage;
+export default function Home() {
+  return <HomePage />;
+}

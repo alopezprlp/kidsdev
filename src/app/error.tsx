@@ -1,5 +1,6 @@
 "use client";
 
+import { francois } from "@/utils/fonts";
 import { useEffect } from "react";
 
 export default function Error({
@@ -15,12 +16,14 @@ export default function Error({
 
   return (
     <div className="container mx-auto px-28 py-8 mb-40 text-center">
-      <h2>Something went wrong!</h2>
+      <h2
+        className={`text-4xl text-center mt-2 text-[#486683] ${francois.className}`}
+      >
+        Something went wrong!
+      </h2>
       <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
+        className="w-full h-12 p-1 flex justify-center items-center bg-white text-[#F1755C]"
+        onClick={() => reset()}
       >
         Try again
       </button>

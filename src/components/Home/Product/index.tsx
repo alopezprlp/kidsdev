@@ -9,7 +9,7 @@ import FormSearch from "./FormSearch";
 const ProductPage = () => {
    
   return (
-    <section className="mt-20 w-full">
+    <section id="productPage" className="mt-20 w-full">
       <h1
         className={`after-img uppercase text-4xl text-center mt-2 text-[#486683] ${francois.className} relative`}
       >
