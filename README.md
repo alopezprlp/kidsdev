@@ -1,4 +1,4 @@
-This is an example of e-commerce made in Nextjs v13.4.4
+This is an example of e-commerce no responsive made in Nextjs v13.4.4
 
 ## Getting Started
 
